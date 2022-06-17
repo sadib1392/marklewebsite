@@ -1,0 +1,250 @@
+*, body, html {
+    box-sizing: border-box;
+}
+
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+#main-header {
+    background: #427d97;
+
+    .main-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            gap: 2rem;
+            width: 100%;
+            margin-inline: 2rem;
+
+            li {
+                margin-left: auto;
+                margin: 0;
+                border-radius: 4px;
+                text-transform: uppercase;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    padding: .75rem 1rem;
+                    border-radius: 4px;
+
+                    &:hover {
+                        background-color: #305d70;
+                        transition: all 250ms ease-in-out;
+                        cursor: pointer;
+                    } 
+                }
+            }
+
+            .logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: auto;
+
+                .logo-link {
+                    background: none;
+                }
+
+                img {
+                   height: 50px;
+                }
+            }
+
+            .schedule-a-visit {
+
+                a {
+                    padding: .75rem 1.5rem;
+                    border-radius: 4px;
+                    background: #f3b21c;
+
+                    &:hover {
+                        background: #d89f1a;
+                        cursor: pointer;
+                        transition: all 250ms ease-in-out;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+// Mobile Navigation Menu 
+
+#mobile-header {
+    display: none;
+    overflow-x: hidden;
+    border: 1px solid red;
+    width: 100%;
+}
+
+// Menu Button Toggle
+.nav-checkbox {
+    display: none;
+}
+
+
+
+#nav-checkbox:checked ~ .nav-toggle > .close-menu {
+    animation: fade-in 150ms forwards;
+}
+
+#nav-checkbox:checked ~ .nav-toggle > .hamburger-menu {
+    animation: fade-out 150ms forwards;
+}
+
+#nav-checkbox:checked ~ .mobile-nav {
+    animation: slide-in 500ms forwards;
+}
+
+#nav-checkbox:not(:checked) ~ .mobile-nav {
+    animation: slide-out 2s forwards;
+}
+
+@keyframes slide-in {
+    from {right: -100%;}
+    to {right: 0;}
+}
+
+@keyframes slide-out {
+    from {right: 0;}
+    to {right: -100%;}
+}
+
+@keyframes fade-out {
+    from {transform: scaleX(1);}
+    to {transform: scaleX(0);}
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 2rem;
+    aspect-ratio: 1 / 1;
+    z-index: 100;
+
+    .hz-line-1 {
+        height: 3px;
+        width: 2rem;
+        background: #427d97;
+    }
+}
+
+.close-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 2rem;
+    aspect-ratio: 1 / 1;
+    z-index: 1000;
+    opacity: 0;
+
+    .dg-line-1 {
+        height: 3px;
+        width: 2rem;
+        position: absolute;
+        // background: #427d97;
+        background: white;
+        transform: rotate(45deg);
+    }
+
+    .dg-line-2 {
+        height: 3px;
+        width: 2rem;
+        position: absolute;
+        // background: #427d97;
+        background: white;
+        transform: rotate(-45deg);
+    }
+}
+
+    .mobile-nav {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        background: #427d97;
+        position: absolute;
+        //right: 0px;
+        right: -100%;
+        height: 100vh;
+
+
+
+
+        ul {
+            list-style: none;
+            margin-top: 125px;
+            margin-right: 50px;
+
+            .schedule-a-visit-mobile-li {
+                border-bottom: 1px solid #f3b21c85;
+
+                &:hover {
+                    border-bottom: 1px solid #f3b21c;
+                }
+            }
+
+            li {
+                display: flex;
+                justify-content: center;
+                letter-spacing: 2px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.158);
+
+                &:hover {
+                    border-bottom: 1px solid white;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    text-transform: uppercase;
+                    padding: 1rem;
+                }
+
+                .schedule-a-visit-mobile {
+                    color: #ffb300;
+                }
+            }
+
+        }
+    }
+    
+
+@media (max-width: 1120px) {
+    #main-header {
+        display: none;
+    }
+
+    #mobile-header {
+        display: flex;
+    }
+}
